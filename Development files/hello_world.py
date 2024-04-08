@@ -6,3 +6,4 @@
 #4 - log into github within VScode 
 #5 - setup a development folder somewhere on your computer 
 #6 - open a folder within VScode File > open folder > Major Work Folder
+# Looks good so far, now need to work out how to clone, which sir will go over.
