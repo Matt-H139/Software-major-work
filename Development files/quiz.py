@@ -26,11 +26,15 @@ while running:
     clock.tick(60)  # limits FPS to 60
 
     #set colour
-    colour = (255, 0, 0)
+    colour = (5, 102, 8)
 
-    # creating 4 buttons as question answer options 
-    pygame.draw.rect(screen, colour, pygame.Rect(500, 300, 200, 75),  3, 10)
+    # creating 4 rectangles as question answer options 
+    pygame.draw.rect(screen, colour, pygame.Rect(50, 150, 400, 200),  100, 10)
+    pygame.draw.rect(screen, colour, pygame.Rect(750, 150, 400, 200),  100, 10)
+    pygame.draw.rect(screen, colour, pygame.Rect(50, 450, 400, 200),  100, 10)
+    pygame.draw.rect(screen, colour, pygame.Rect(750, 450, 400, 200),  100, 10)
 
+        
 
 
 # flip() the display to put your work on screen
