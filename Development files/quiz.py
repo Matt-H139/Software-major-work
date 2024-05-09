@@ -29,15 +29,36 @@ while running:
     colour = (5, 102, 8)
 
     # creating 4 rectangles as question answer options 
-    pygame.draw.rect(screen, colour, pygame.Rect(50, 150, 400, 200),  100, 10)
-    pygame.draw.rect(screen, colour, pygame.Rect(750, 150, 400, 200),  100, 10)
-    pygame.draw.rect(screen, colour, pygame.Rect(50, 450, 400, 200),  100, 10)
-    pygame.draw.rect(screen, colour, pygame.Rect(750, 450, 400, 200),  100, 10)
+    pygame.draw.rect(screen, colour, pygame.Rect(100, 175, 400, 200),  100, 10)
+    pygame.draw.rect(screen, colour, pygame.Rect(700, 175, 400, 200),  100, 10)
+    pygame.draw.rect(screen, colour, pygame.Rect(100, 450, 400, 200),  100, 10)
+    pygame.draw.rect(screen, colour, pygame.Rect(700, 450, 400, 200),  100, 10)
 
-        
+# white color 
+color = (255,255,255) 
+  
+# light shade of the button 
+color_light = (170,170,170) 
+  
+# dark shade of the button 
+color_dark = (100,100,100) 
 
+# defining a font 
+smallfont = pygame.font.SysFont('Corbel',35) 
+
+# rendering a text written in 
+# this font 
+text = smallfont.render('quit' , True , color) 
+  
+while True: 
+      
+    for ev in pygame.event.get(): 
+          
+        if ev.type == pygame.QUIT: 
+            pygame.quit() 
+              
+        #checks if a mouse is clicked 
+        if ev.type == pygame.MOUSEBUTTONDOWN: 
 
 # flip() the display to put your work on screen
     pygame.display.flip()
-
-pygame.quit()
