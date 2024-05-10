@@ -24,18 +24,20 @@ while running:
     pygame.display.set_icon(Icon)
 
 
-    clock.tick(60)  # limits FPS to 60
+    # Load button images
+    start_img = pygame.image.load('start_btn.png').convert_alpha
+    exit_img = pygame.image.load('start_btn.png').convert_alpha
 
-    #set colour
-    colour = (5, 102, 8)
+    # #set colour
+    # colour = (5, 102, 8)
 
-    # creating 4 rectangles as question answer options 
-    pygame.draw.rect(screen, colour, pygame.Rect(100, 175, 400, 200),  100, 10)
-    pygame.draw.rect(screen, colour, pygame.Rect(700, 175, 400, 200),  100, 10)
-    pygame.draw.rect(screen, colour, pygame.Rect(100, 450, 400, 200),  100, 10)
-    pygame.draw.rect(screen, colour, pygame.Rect(700, 450, 400, 200),  100, 10)
+    # # creating 4 rectangles as question answer options 
+    # pygame.draw.rect(screen, colour, pygame.Rect(100, 175, 400, 200),  100, 10)
+    # pygame.draw.rect(screen, colour, pygame.Rect(700, 175, 400, 200),  100, 10)
+    # pygame.draw.rect(screen, colour, pygame.Rect(100, 450, 400, 200),  100, 10)
+    # pygame.draw.rect(screen, colour, pygame.Rect(700, 450, 400, 200),  100, 10)
 
-
+    clock.tick(60)  # limits FPS to 60  
 
 # flip() the display to put your work on screen
     pygame.display.flip()
