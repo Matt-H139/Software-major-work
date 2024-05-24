@@ -4,14 +4,14 @@ class Page(customtkinter.CTk):  # Inherit from customtkinter.CTk
     def __init__(self):
         super().__init__()  # Initialize the superclass
         
-        self.geometry("500x500")
+        self.geometry("500x500") # Window size
         customtkinter.set_appearance_mode("dark")  # Setting appearance mode
         customtkinter.set_default_color_theme("blue")  # Setting theme
         
         self.frame = customtkinter.CTkFrame(self)
         self.frame.pack(pady=20, padx=20, fill='both', expand=True)
         
-        self.label = customtkinter.CTkLabel(master=self.frame, text='Quiz Title', fg_color='transparent') #setting label dimensions
+        self.label = customtkinter.CTkLabel(master=self.frame, text='Quiz Title', fg_color='transparent') #setting label dimensions + label name/title
         self.label.grid(row=0, column=4, sticky='nsew') #label in grid
         
         self.buttonA = customtkinter.CTkButton(master=self.frame, text='A', command=self.button_print_answerA) #button commands + labels
@@ -31,13 +31,13 @@ class Page(customtkinter.CTk):  # Inherit from customtkinter.CTk
     def button_print_answerA(self):   # button commands 
         print('option a')
     
-    def button_print_answerB(self):
+    def button_print_answerB(self):   # button commands 
         print('option b')
     
-    def button_print_answerC(self):
+    def button_print_answerC(self):   # button commands 
         print('option c')
     
-    def button_print_answerD(self):
+    def button_print_answerD(self):   # button commands 
         print('option d')
 
 def run():
