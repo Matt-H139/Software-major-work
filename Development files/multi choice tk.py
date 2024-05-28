@@ -11,34 +11,60 @@ class Page(customtkinter.CTk):  # Inherit from customtkinter.CTk
         self.frame = customtkinter.CTkFrame(self)
         self.frame.pack(pady=20, padx=20, fill='both', expand=True)
         
-        self.label = customtkinter.CTkLabel(master=self.frame, text='Quiz Title', fg_color='transparent') #setting label dimensions + label name/title
-        self.label.grid(row=0, column=4, sticky='nsew') #label in grid
+        self.feedback_label = customtkinter.CTkLabel(master=self.frame, text='Quiz Title', fg_color='transparent') #setting label dimensions + label name/title
+        self.feedback_label.grid(row=0, column=3, sticky='nsew') #label in grid
         
-        self.buttonA = customtkinter.CTkButton(master=self.frame, text='A', command=self.button_print_answerA) #button commands + labels
-        self.buttonB = customtkinter.CTkButton(master=self.frame, text='B', command=self.button_print_answerB)
-        self.buttonC = customtkinter.CTkButton(master=self.frame, text='C', command=self.button_print_answerC)
-        self.buttonD = customtkinter.CTkButton(master=self.frame, text='D', command=self.button_print_answerD)
-        
+        self.option_buttons = []
+        for i in range(4):
+            buttonA = customtkinter.CTkButton(master=self.frame, text='A', command=lambda i=i: self.check_answer(i)) #button commands + labels
+            self.option_buttons.append(buttonA)    
+            buttonA.grid(row=i + 1, column=2, padx=10, pady=10)    #setting buttons in grid
+       
         for i in range(8):
             self.frame.grid_columnconfigure(i, weight=3)
             self.frame.grid_rowconfigure(i, weight=1)
         
-        self.buttonA.grid(row=4, column=0, padx=1, pady=1) #setting buttons in grid
-        self.buttonB.grid(row=4, column=8, padx=1, pady=1)
-        self.buttonC.grid(row=8, column=0, padx=1, pady=1)
-        self.buttonD.grid(row=8, column=8, padx=1, pady=1)
 
-    def button_print_answerA(self):   # button commands 
-        print('option a')
-    
-    def button_print_answerB(self):   # button commands 
-        print('option b')
-    
-    def button_print_answerC(self):   # button commands 
-        print('option c')
-    
-    def button_print_answerD(self):   # button commands 
-        print('option d')
+        self.questions = [
+            {
+                "question": "What is the capital of France?",
+                "options": ["Paris", "London", "Rome", "Berlin"],
+                "correct": 0
+            },
+            {
+                "question": "What is 2 + 2?",
+                "options": ["3", "4", "5", "6"],
+                "correct": 1
+            }
+            # Add more questions as needed
+        ]
+
+        self.current_question_index = 0
+        self.load_question()
+
+    def load_question(self):
+        question_data = self.questions[self.current_question_index]
+        self.label.configure(text=question_data["question"])
+
+        for i, option in enumerate(question_data["options"]):
+            self.option_buttons[i].configure(text=option)
+
+    def check_answer(self, selected_option_index):
+        correct_option_index = self.questions[self.current_question_index]["correct"]
+
+        if selected_option_index == correct_option_index:
+            self.feedback_label.configure(text="Correct!", text_color="green")
+        else:
+            self.feedback_label.configure(text="Incorrect!", text_color="red")
+
+        self.current_question_index += 1
+        if self.current_question_index < len(self.questions):
+            self.load_question()
+        else:
+            self.label.configure(text="Quiz Completed!")
+            for button in self.option_buttons:
+                button.configure(state='disabled')
+            self.feedback_label.configure(text='')
 
 def run():
     app = Page()
