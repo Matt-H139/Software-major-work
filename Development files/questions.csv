@@ -17,5 +17,5 @@ Italian,"Which of the following is the Italian word for ""Wednesday""?",Mercoled
 Maths,What is the sum of the interior angles of a triangle?,90 Degrees ,180 Degrees ,270 Degrees,360 Degrees,b
 Maths ,What is the derivative of f(x) = x^2?,1/2x,2x,x,1x,b
 Maths,What is 25% of 200?,100,40,50,25,c
-Maths,What is the value of sin(90)?,-1,0,1,-2,c
+Maths,What is the value of sin(90)?,-1,0,-2,1,d
 Maths,"What is the next number in the sequence: 2, 4, 8, 16, ___?",20,24,64,32,d
