@@ -4,7 +4,7 @@ class Page(customtkinter.CTk):  # Inherit from customtkinter.CTk
     def __init__(self):
         super().__init__()  # Initialize the superclass
         
-        self.geometry("500x500") # Window size
+        self.geometry("750x750") # Window size
         customtkinter.set_appearance_mode("dark")  # Setting appearance mode
         customtkinter.set_default_color_theme("blue")  # Setting theme
         
@@ -12,15 +12,15 @@ class Page(customtkinter.CTk):  # Inherit from customtkinter.CTk
         self.frame.pack(pady=20, padx=20, fill='both', expand=True)
         
         self.feedback_label = customtkinter.CTkLabel(master=self.frame, text='Quiz Title', fg_color='transparent') #setting label dimensions + label name/title
-        self.feedback_label.grid(row=0, column=3, sticky='nsew') #label in grid
+        self.feedback_label.grid(row=0, column=4, sticky='nsew') #label in grid
         
         self.option_buttons = []
         for i in range(4):
             buttonA = customtkinter.CTkButton(master=self.frame, text='A', command=lambda i=i: self.check_answer(i)) #button commands + labels
             self.option_buttons.append(buttonA)    
-            buttonA.grid(row=i + 1, column=2, padx=10, pady=10)    #setting buttons in grid
+            buttonA.grid(row=i + 1, column=4, padx=10, pady=10)    #setting buttons in grid
        
-        for i in range(8):
+        for i in range(9):
             self.frame.grid_columnconfigure(i, weight=3)
             self.frame.grid_rowconfigure(i, weight=1)
         
@@ -44,7 +44,7 @@ class Page(customtkinter.CTk):  # Inherit from customtkinter.CTk
 
     def load_question(self):
         question_data = self.questions[self.current_question_index]
-        self.label.configure(text=question_data["question"])
+        self.feedback_label.configure(text=question_data["question"])
 
         for i, option in enumerate(question_data["options"]):
             self.option_buttons[i].configure(text=option)
@@ -61,7 +61,7 @@ class Page(customtkinter.CTk):  # Inherit from customtkinter.CTk
         if self.current_question_index < len(self.questions):
             self.load_question()
         else:
-            self.label.configure(text="Quiz Completed!")
+            self.feedback_label.configure(text="Quiz Completed!")
             for button in self.option_buttons:
                 button.configure(state='disabled')
             self.feedback_label.configure(text='')
