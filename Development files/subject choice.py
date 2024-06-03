@@ -36,6 +36,18 @@ class Page(customtkinter.CTk):
         
 
         self.current_question_index = 0 
+        self.load_question()
+
+    def load_question(self):
+        question_data = self.questions[self.current_question_index]
+        options = question_data['options']
+        for i, option in enumerate(options):
+            self.options_buttons[i].configure(text=option)
+
+    def check_answer(self, index):
+        # Logic to check answer
+        pass
+
 
 def run():
     app = Page()
