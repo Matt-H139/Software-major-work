@@ -12,12 +12,12 @@ class Page(customtkinter.CTk):
         self.frame = customtkinter.CTkFrame(self)
         self.frame.pack(pady =10, padx =10, fill='both', expand=True)
 
-        self.Label = customtkinter.CTkLabel(master=self.frame, text='Select Quiz Topic', fg_color='red')
-        self.Label.grid(row=0, column=0, sticky='new')
+        self.Label = customtkinter.CTkLabel(master=self.frame, text='Select Quiz Topic', fg_color='transparent')
+        self.Label.grid(row=0, column=3, sticky='nsew')
 
         self.options_buttons = []
-        for i in range(3):
-            Button1 = customtkinter.CTkButton(master=self.frame, text='A', command=lambda i=i: self.check_answer(i))
+        for i in range(4):
+            Button1 = customtkinter.CTkButton(master=self.frame, text='', command=lambda i=i: self.check_answer(i))
             self.options_buttons.append(Button1) 
             Button1.grid(row=i + 1, column=1, pady=5, padx=5)
 
@@ -28,10 +28,18 @@ class Page(customtkinter.CTk):
 
         self.questions = [
             {
-                'question': 'Select Quiz Topic'
-                'options': ['physics', 'biology', 'mathematics', 'italian']
-                'correct': 0, 1, 2, 3
+                'question': 'Select Quiz Topic',
+                'options': ['physics', 'biology', 'mathematics', 'italian'], 
+                'correct': 0
             }
         ]
+        
 
         self.current_question_index = 0 
+
+def run():
+    app = Page()
+    app.mainloop()
+
+if __name__ == "__main__":
+    run() 
