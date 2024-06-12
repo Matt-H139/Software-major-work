@@ -1,4 +1,8 @@
 import customtkinter
+from get_questions import import_quiz_data
+
+quiz_data = import_quiz_data()
+
 
 class Page(customtkinter.CTk):  # Inherit from customtkinter.CTk
     def __init__(self):
@@ -25,8 +29,14 @@ class Page(customtkinter.CTk):  # Inherit from customtkinter.CTk
             self.frame.grid_rowconfigure(i, weight=1)
         
 
+        # self.questions = quiz_data
         self.questions = [
+
+            quiz_data[0],
+
+
             {
+
                 "question": "What is the capital of France?",
                 "options": ["Paris", "London", "Rome", "Berlin"],
                 "correct": 0
@@ -72,3 +82,9 @@ def run():
 
 if __name__ == "__main__":
     run()
+
+
+# take the questions imported from quiz data 
+# feed them into self.questions in interface
+# test that a question appears
+# think about 
