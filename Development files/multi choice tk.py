@@ -33,20 +33,25 @@ class Page(customtkinter.CTk):  # Inherit from customtkinter.CTk
         self.questions = [
 
             quiz_data[0],
-
-
-            {
-
-                "question": "What is the capital of France?",
-                "options": ["Paris", "London", "Rome", "Berlin"],
-                "correct": 0
-            },
-            {
-                "question": "What is 2 + 2?",
-                "options": ["3", "4", "5", "6"],
-                "correct": 1
-            }
-            # Add more questions as needed
+            quiz_data[1],
+            quiz_data[2],
+            quiz_data[3],
+            quiz_data[4],
+            quiz_data[5],
+            quiz_data[6],
+            quiz_data[7],
+            quiz_data[8],
+            quiz_data[9],
+            quiz_data[10],
+            quiz_data[11],
+            quiz_data[12],
+            quiz_data[13],
+            quiz_data[14],
+            quiz_data[15],
+            quiz_data[16],
+            quiz_data[17],
+            quiz_data[18],
+            quiz_data[19],
         ]
 
         self.current_question_index = 0
