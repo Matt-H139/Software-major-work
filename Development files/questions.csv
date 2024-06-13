@@ -1,21 +1,21 @@
-subject,question,option_a,option_b,option_c,option_d,answer
-Biology,What is the powerhouse of the cell?, mitochondria, nucleus, cell wall, cytoplasm,a
-Biology,Which organelle is responsible for energy production in the cell?,nucleus,ribosome,mitochondrion,golgi apparitus,c
-Biology,What is the process by which a DNA sequence is copied into mRNA?,translation,replication,transcription,transformation,c
-Biology,Who is known as the father of evolution?,Gregor Mendel,Charles Darwin,Louis Paster,Carl Lnneaus,b
-Biology,What are the building blocks of proteins?,nucleotides,monosaccharides,fatty acids,amino acids,d
-Physics,What is the unit of force in the International System of Units (SI)?,Pascal,Newton,Joule,Watt,b
-Physics,What is the SI unit of electric current?,Volt,Coulomb,Ampere,Ohm,c
-Physics,Who developed the theory of relativity?,Issac Newton,Albert Einstien ,Niels Bohr,James Clerk Maxwell,b
-Italian,What is the Italian word for 'book'?,Penna,Tavolo,Libro,Sedia,c
-Italian,"How do you say ""How are you?"" in Italian?",Come stai?,Che ore sono?,Dove vai?,Cosa fai?,a
-Italian,"What is the Italian word for ""red""?",Blu,Verde ,Giallo,Rosso,d
-Physics,What is the acceleration due to gravity on Earth's surface?,8.9m/s/s,9.8m/s/s,10.2m/s/s,11.1m/s/s,b
-Physics,What particle is emitted during beta decay?,Proton,Neutron,Electron,Photon,c
-Italian,"How do you say the number ""fifteen"" in Italian?",quattordici,tre,quindici,nova,c
-Italian,"Which of the following is the Italian word for ""Wednesday""?",Mercoledi,Lunedi,Giovedi,Martedi,a
-Maths,What is the sum of the interior angles of a triangle?,90 Degrees ,180 Degrees ,270 Degrees,360 Degrees,b
-Maths ,What is the derivative of f(x) = x^2?,1/2x,2x,x,1x,b
-Maths,What is 25% of 200?,100,40,50,25,c
-Maths,What is the value of sin(90)?,-1,0,-2,1,d
-Maths,"What is the next number in the sequence: 2, 4, 8, 16, ___?",20,24,64,32,d
+,subject,question,option_a,option_b,option_c,option_d,answer
+,Biology,What is the powerhouse of the cell?, mitochondria, nucleus, cell wall, cytoplasm,a
+,Biology,Which organelle is responsible for energy production in the cell?,nucleus,ribosome,mitochondrion,golgi apparitus,c
+,Biology,What is the process by which a DNA sequence is copied into mRNA?,translation,replication,transcription,transformation,c
+,Biology,Who is known as the father of evolution?,Gregor Mendel,Charles Darwin,Louis Paster,Carl Lnneaus,b
+,Biology,What are the building blocks of proteins?,nucleotides,monosaccharides,fatty acids,amino acids,d
+,Physics,What is the unit of force in the International System of Units (SI)?,Pascal,Newton,Joule,Watt,b
+,Physics,What is the SI unit of electric current?,Volt,Coulomb,Ampere,Ohm,c
+,Physics,Who developed the theory of relativity?,Issac Newton,Albert Einstien ,Niels Bohr,James Clerk Maxwell,b
+,Italian,What is the Italian word for 'book'?,Penna,Tavolo,Libro,Sedia,c
+,Italian,"How do you say ""How are you?"" in Italian?",Come stai?,Che ore sono?,Dove vai?,Cosa fai?,a
+,Italian,"What is the Italian word for ""red""?",Blu,Verde ,Giallo,Rosso,d
+,Physics,What is the acceleration due to gravity on Earth's surface?,8.9m/s/s,9.8m/s/s,10.2m/s/s,11.1m/s/s,b
+,Physics,What particle is emitted during beta decay?,Proton,Neutron,Electron,Photon,c
+,Italian,"How do you say the number ""fifteen"" in Italian?",quattordici,tre,quindici,nova,c
+,Italian,"Which of the following is the Italian word for ""Wednesday""?",Mercoledi,Lunedi,Giovedi,Martedi,a
+,Maths,What is the sum of the interior angles of a triangle?,90 Degrees ,180 Degrees ,270 Degrees,360 Degrees,b
+,Maths ,What is the derivative of f(x) = x^2?,1/2x,2x,x,1x,b
+,Maths,What is 25% of 200?,100,40,50,25,c
+,Maths,What is the value of sin(90)?,-1,0,-2,1,d
+,Maths,"What is the next number in the sequence: 2, 4, 8, 16, ___?",20,24,64,32,d
