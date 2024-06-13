@@ -9,15 +9,15 @@ class Page(customtkinter.CTk):
         customtkinter.set_appearance_mode("dark")
         customtkinter.set_default_color_theme('blue')
 
-        self.frame = customtkinter.CTkFrame(self)
-        self.frame.pack(pady =10, padx =10, fill='both', expand=True)
+        self.frame2 = customtkinter.CTkFrame(self)
+        self.frame2.pack(pady =10, padx =10, fill='both', expand=True)
 
-        self.Label = customtkinter.CTkLabel(master=self.frame, text='Select Quiz Topic', fg_color='transparent')
-        self.Label.grid(row=0, column=3, sticky='nsew')
+        self.Label2 = customtkinter.CTkLabel(master=self.frame2, text='Select Quiz Topic', fg_color='transparent')
+        self.Label2.grid(row=0, column=3, sticky='nsew')
 
         self.options_buttons = []
         for i in range(4):
-            Button1 = customtkinter.CTkButton(master=self.frame, text='', command=lambda i=i: self.check_answer(i))
+            Button1 = customtkinter.CTkButton(master=self.frame2, text='', command=lambda i=i: self.check_answer(i))
             self.options_buttons.append(Button1) 
             Button1.grid(row=i + 1, column=1, pady=5, padx=5)
 
@@ -44,9 +44,7 @@ class Page(customtkinter.CTk):
         for i, option in enumerate(options):
             self.options_buttons[i].configure(text=option)
 
-    def check_answer(self, index):
-        # Logic to check answer
-        pass
+    
 
 
 def run():
