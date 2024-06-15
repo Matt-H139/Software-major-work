@@ -12,52 +12,37 @@ class Page(customtkinter.CTk):  # Inherit from customtkinter.CTk
         customtkinter.set_appearance_mode("dark")
         customtkinter.set_default_color_theme('blue')
 
-        self.frame2 = customtkinter.CTkFrame(self)
-        self.frame2.pack(pady =10, padx =10, fill='both', expand=True)
+        self.subject_frame = customtkinter.CTkFrame(self)
+        self.subject_frame.pack(pady =10, padx =10, fill='both', expand=True)
 
-        self.Label2 = customtkinter.CTkLabel(master=self.frame2, text='Select Quiz Topic', fg_color='transparent')
+        self.Label2 = customtkinter.CTkLabel(master=self.subject_frame, text='Select Quiz Topic', fg_color='transparent')
         self.Label2.grid(row=0, column=3, sticky='nsew')
 
         self.options_buttons2 = []
-        for i in range(4):
-            Button1 = customtkinter.CTkButton(master=self.frame2, text='', command=lambda i=i: self.check_answer(i))
-            self.options_buttons2.append(Button1) 
-            Button1.grid(row=i + 1, column=1, pady=5, padx=5)
+        self.options = ['Physics', 'Biology', 'Mathematics', 'Italian']
+        for i, option in enumerate(self.options): 
+            Button = customtkinter.CTkButton(master=self.subject_frame, text=option, command=lambda opt=option: self.open_frame(opt))
+            self.options_buttons2.append(Button) 
+            Button.grid(row=i + 1, column=1, pady=5, padx=5)
 
         for i in range(10):
-            self.frame2.grid_columnconfigure(i, weight=3)
-            self.frame2.grid_rowconfigure(i, weight=1)
+            self.subject_frame.grid_columnconfigure(i, weight=3)
+            self.subject_frame.grid_rowconfigure(i, weight=1)
 
 
-        self.questions = [
-            {
-                'question': 'Select Quiz Topic',
-                'options': ['physics', 'biology', 'mathematics', 'italian'], 
-                'correct': 0
-            }
-        ]
-        
-
-        self.current_question_index = 0 
-        # self.load_question()
-
-    def load_question(self):
-        question_data = self.questions[self.current_question_index]
-        options = question_data['options']
-        for i, option in enumerate(options):
-            self.options_buttons[i].configure(text=option)
-
-
-
-        self.geometry("750x750") # Window size
-        customtkinter.set_appearance_mode("dark")  # Setting appearance mode
-        customtkinter.set_default_color_theme("blue")  # Setting theme
-        
         self.frame = customtkinter.CTkFrame(self)
-        self.frame.pack(pady=20, padx=20, fill='both', expand=True)
-        
-        self.feedback_label = customtkinter.CTkLabel(master=self.frame, text='Quiz Title', fg_color='transparent') #setting label dimensions + label name/title
-        self.feedback_label.grid(row=0, column=4, sticky='nsew') #label in grid
+        self.frame.pack_forget()
+
+        self.questions = quiz_data
+        self.current_question_index = 0
+
+    def open_frame(self, option):
+        print(f"Selected option: {option}")
+        self.subject_frame.pack_forget()
+        self.frame.pack(pady=20, padx=20, fill="both", expand=True)
+
+        self.label = customtkinter.CTkLabel(master=self.frame, text="Quiz Title", fg_color="transparent")
+        self.label.grid(row=0, column=0, columnspan=4, sticky="news")
         
         self.option_buttons = []
         for i in range(4):
