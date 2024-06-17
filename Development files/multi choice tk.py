@@ -1,7 +1,12 @@
 import customtkinter
 from get_questions import import_quiz_data
 
+global quiz_data
+
 quiz_data = import_quiz_data()
+
+
+
 
 
 class Page(customtkinter.CTk):  # Inherit from customtkinter.CTk
@@ -37,6 +42,19 @@ class Page(customtkinter.CTk):  # Inherit from customtkinter.CTk
         self.current_question_index = 0
 
     def open_frame(self, option):
+
+        # get questions based on chosen option
+
+ 
+        filtered_questions = []
+        for i in quiz_data:
+            if i['subject'] == option:
+                filtered_questions.append(i)
+
+        print(filtered_questions)
+
+
+
         print(f"Selected option: {option}")
         self.subject_frame.pack_forget()
         self.frame.pack(pady=20, padx=20, fill="both", expand=True)
@@ -59,30 +77,8 @@ class Page(customtkinter.CTk):  # Inherit from customtkinter.CTk
             self.frame.grid_rowconfigure(i, weight=1)
         
 
-        self.questions = quiz_data
-        self.questions = [
-
-            quiz_data[0],
-            quiz_data[1],
-            quiz_data[2],
-            quiz_data[3],
-            quiz_data[4],
-            quiz_data[5],
-            quiz_data[6],
-            quiz_data[7],
-            quiz_data[8],
-            quiz_data[9],
-            quiz_data[10],
-            quiz_data[11],
-            quiz_data[12],
-            quiz_data[13],
-            quiz_data[14],
-            quiz_data[15],
-            quiz_data[16],
-            quiz_data[17],
-            quiz_data[18],
-            quiz_data[19],
-        ]
+        self.questions = filtered_questions
+        
 
         self.current_question_index = 0
         self.load_question()
