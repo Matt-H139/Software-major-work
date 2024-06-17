@@ -59,7 +59,7 @@ class Page(customtkinter.CTk):  # Inherit from customtkinter.CTk
         self.subject_frame.pack_forget()
         self.frame.pack(pady=20, padx=20, fill="both", expand=True)
 
-        self.label = customtkinter.CTkLabel(master=self.frame, text="Quiz Title", fg_color="transparent")
+        self.label = customtkinter.CTkLabel(master=self.frame, text=f"{option} Quiz", fg_color="transparent")
         self.label.grid(row=0, column=3, columnspan=4, sticky="news")
 
         
