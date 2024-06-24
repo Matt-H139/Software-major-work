@@ -11,7 +11,7 @@ score = 0
 
 
 class Page(customtkinter.CTk):  # Inherit from customtkinter.CTk
-    def __init__(self):
+    def __init__(self, subject):
         super().__init__()  # Initialize the superclass
         
         self.geometry('500x500')
@@ -25,7 +25,7 @@ class Page(customtkinter.CTk):  # Inherit from customtkinter.CTk
         self.Label2.grid(row=0, column=5, sticky='nsew')
 
         self.options_buttons2 = []
-        self.options = ['Physics', 'Biology', 'Mathematics', 'Italian']
+        self.options = [f"{subject}"] 
         for i, option in enumerate(self.options): 
             Button = customtkinter.CTkButton(master=self.subject_frame, text=option, command=lambda opt=option: self.open_frame(opt))
             self.options_buttons2.append(Button) 
@@ -42,7 +42,7 @@ class Page(customtkinter.CTk):  # Inherit from customtkinter.CTk
         self.questions = quiz_data
         self.current_question_index = 0
 
-    def open_frame(self, option):
+    def open_frame(self, option): 
 
         # get questions based on chosen option
 
@@ -108,13 +108,13 @@ class Page(customtkinter.CTk):  # Inherit from customtkinter.CTk
 
         self.current_question_index += 1
 
-        if self.current_question_index < len(self.questions):
+        if self.current_question_index < len(self.questions): # 
             self.load_question()
         else:
             
             for button in self.option_buttons:
                 button.configure(state='disabled')
-            self.feedback_label.configure(text=f"Quiz Completed!\n Your score:  ")
+            self.feedback_label.configure(text=f"Quiz Completed!\n Your score:  ")  # Displays Text in a label once all questions have been answered
             print(score)
 
 
