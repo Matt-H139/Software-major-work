@@ -26,7 +26,6 @@ class Page(customtkinter.CTk):  # Inherit from customtkinter.CTk
 
         self.options_buttons2 = []
         for i, option in enumerate(subject): 
-        # self.options = ['Physics', 'Biology', 'Mathematics', 'Italian']  
             Button = customtkinter.CTkButton(master=self.subject_frame, text=option, command=lambda opt=option: self.open_frame(opt))
             self.options_buttons2.append(Button) 
             Button.grid(row=i + 1, column=5, pady=5, padx=5)
@@ -45,12 +44,7 @@ class Page(customtkinter.CTk):  # Inherit from customtkinter.CTk
     def open_frame(self, option): 
 
         # get questions based on chosen option
-
         filtered_questions = [q for q in quiz_data if q['subject'] == option]
-
-        
-
-
 
         print(f"Selected option: {option}")
         self.subject_frame.pack_forget()
@@ -76,8 +70,6 @@ class Page(customtkinter.CTk):  # Inherit from customtkinter.CTk
         
 
         self.questions = filtered_questions
-        
-
         self.current_question_index = 0
         self.load_question()
 
@@ -90,28 +82,20 @@ class Page(customtkinter.CTk):  # Inherit from customtkinter.CTk
 
     def check_answer(self, selected_option_index):
 
-        
         correct_option_index = self.questions[self.current_question_index]["correct"] # accesses the correct answer for the question
-        print("Test",correct_option_index)
-
-        print(self.questions[self.current_question_index]["correct"])
 
         if selected_option_index == correct_option_index:
             global score
             score += 1
-            # self.feedback_label.configure(text="Correct!", text_color="green")
-        # else:
-        #     self.feedback_label.configure(text="Incorrect!", text_color="red")
 
         self.current_question_index += 1
 
-        if self.current_question_index < len(self.questions): # 
+        if self.current_question_index < len(self.questions): 
             self.load_question()
         else:
-            
             for button in self.option_buttons:
                 button.configure(state='disabled')
-            self.feedback_label.configure(text=f"Quiz Completed!\n Your score:  ")  # Displays Text in a label once all questions have been answered
+            self.feedback_label.configure(text=f"Quiz Completed!\n Your score: {score} ")  # Displays Text in a label once all questions have been answered
             print(score)
 
 
