@@ -2,14 +2,13 @@ import customtkinter
 from get_questions import import_quiz_data
 
 global quiz_data
-global subject
 
 quiz_data = import_quiz_data()
 
 global score
-
 score = 0 
 
+unique_subjects = list(set(question['subject'] for question in quiz_data))
 
 class Page(customtkinter.CTk):  # Inherit from customtkinter.CTk 
     def __init__(self, subject):
@@ -27,8 +26,7 @@ class Page(customtkinter.CTk):  # Inherit from customtkinter.CTk
 
         self.options_buttons2 = []
         for i, option in enumerate(subject): 
-        # self.options = ['Physics', 'Biology', 'Mathematics', 'Italian'] 
-         for i, option in enumerate(self.options): 
+        # self.options = ['Physics', 'Biology', 'Mathematics', 'Italian']  
             Button = customtkinter.CTkButton(master=self.subject_frame, text=option, command=lambda opt=option: self.open_frame(opt))
             self.options_buttons2.append(Button) 
             Button.grid(row=i + 1, column=5, pady=5, padx=5)
@@ -48,13 +46,9 @@ class Page(customtkinter.CTk):  # Inherit from customtkinter.CTk
 
         # get questions based on chosen option
 
- 
-        filtered_questions = []
-        for i in quiz_data:
-            if i['subject'] == option:
-                filtered_questions.append(i)
+        filtered_questions = [q for q in quiz_data if q['subject'] == option]
 
-        print(filtered_questions)
+        
 
 
 
@@ -103,7 +97,8 @@ class Page(customtkinter.CTk):  # Inherit from customtkinter.CTk
         print(self.questions[self.current_question_index]["correct"])
 
         if selected_option_index == correct_option_index:
-            score=score+1
+            global score
+            score += 1
             # self.feedback_label.configure(text="Correct!", text_color="green")
         # else:
         #     self.feedback_label.configure(text="Incorrect!", text_color="red")
@@ -121,7 +116,7 @@ class Page(customtkinter.CTk):  # Inherit from customtkinter.CTk
 
 
 def run():
-    app = Page()
+    app = Page(unique_subjects)
     app.mainloop()
 
 if __name__ == "__main__":
