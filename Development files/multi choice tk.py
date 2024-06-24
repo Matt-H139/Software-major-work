@@ -2,6 +2,7 @@ import customtkinter
 from get_questions import import_quiz_data
 
 global quiz_data
+global subject
 
 quiz_data = import_quiz_data()
 
@@ -10,7 +11,7 @@ global score
 score = 0 
 
 
-class Page(customtkinter.CTk):  # Inherit from customtkinter.CTk
+class Page(customtkinter.CTk):  # Inherit from customtkinter.CTk 
     def __init__(self, subject):
         super().__init__()  # Initialize the superclass
         
@@ -25,8 +26,9 @@ class Page(customtkinter.CTk):  # Inherit from customtkinter.CTk
         self.Label2.grid(row=0, column=5, sticky='nsew')
 
         self.options_buttons2 = []
-        self.options = [f"{subject}"] 
-        for i, option in enumerate(self.options): 
+        for i, option in enumerate(subject): 
+        # self.options = ['Physics', 'Biology', 'Mathematics', 'Italian'] 
+         for i, option in enumerate(self.options): 
             Button = customtkinter.CTkButton(master=self.subject_frame, text=option, command=lambda opt=option: self.open_frame(opt))
             self.options_buttons2.append(Button) 
             Button.grid(row=i + 1, column=5, pady=5, padx=5)
@@ -126,7 +128,3 @@ if __name__ == "__main__":
     run()
 
 
-# take the questions imported from quiz data 
-# feed them into self.questions in interface
-# test that a question appears
-# think about 
