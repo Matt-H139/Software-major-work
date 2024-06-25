@@ -1,8 +1,23 @@
 import customtkinter
-from get_questions import import_quiz_data
+# from get_questions import import_quiz_data
+import csv 
+
+def import_quiz_data():
+    quiz_data = []
+    with open('questions.csv', 'r') as file:
+        reader = csv.DictReader(file)
+        for row in reader:
+            options = [row['option_a'], row['option_b'], row['option_c'], row['option_d']]
+            correct_answer = row['answer']
+            quiz_data.append({
+                'subject': row['subject'],
+                'question': row['question'],
+                'options': options,
+                'correct_answer': correct_answer
+            })
+    return quiz_data
 
 global quiz_data
-
 quiz_data = import_quiz_data()
 
 global score
@@ -81,12 +96,12 @@ class Page(customtkinter.CTk):  # Inherit from customtkinter.CTk
             self.option_buttons[i].configure(text=option)
 
     def check_answer(self, selected_option_index):
+        question_data = self.questions[self.current_question_index]
+        correct_option_index = ord(question_data['correct_answer']) - ord('a')  # Convert 'a', 'b', 'c', 'd' to 0, 1, 2, 3
 
-        correct_option_index = self.questions[self.current_question_index]["correct"] # accesses the correct answer for the question
-
+        global score
         if selected_option_index == correct_option_index:
-            global score
-            score += 1
+            score += 1 
 
         self.current_question_index += 1
 
@@ -97,6 +112,7 @@ class Page(customtkinter.CTk):  # Inherit from customtkinter.CTk
                 button.configure(state='disabled')
             self.feedback_label.configure(text=f"Quiz Completed!\n Your score: {score} ")  # Displays Text in a label once all questions have been answered
             print(score)
+
 
 
 def run():
