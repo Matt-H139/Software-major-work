@@ -7,4 +7,4 @@ This project is a quiz application built using `customtkinter` that dynamically 
 1. **Clone the repository:**
    ```bash
    git clone https://github.com/Matt-H139/Software-major-work/tree/master
-   cd <repository-directory>
+   cd Software-major-work/
