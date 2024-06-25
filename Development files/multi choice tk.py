@@ -1,5 +1,4 @@
 import customtkinter
-# from get_questions import import_quiz_data
 import csv 
 
 def import_quiz_data():
