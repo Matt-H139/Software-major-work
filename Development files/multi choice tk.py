@@ -112,6 +112,7 @@ class Page(customtkinter.CTk):  # Inherit from customtkinter.CTk
                 button.configure(state='disabled')
             self.feedback_label.configure(text=f"Quiz Completed!\n Your score: {score} ")  # Displays Text in a label once all questions have been answered
             print(score)
+            
             self.retry_button.grid(row=7, column=4, pady=10, padx=10)
 
     def reset_quiz(self):
@@ -126,6 +127,4 @@ def run():
     app.mainloop()
 
 if __name__ == "__main__":
-    run()
-
-
+    run() 
