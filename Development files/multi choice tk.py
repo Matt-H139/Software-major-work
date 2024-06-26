@@ -55,6 +55,8 @@ class Page(customtkinter.CTk):  # Inherit from customtkinter.CTk
         self.questions = quiz_data
         self.current_question_index = 0
 
+        self.retry_button = customtkinter.CTkButton(master=self.frame, text='Retry Or Select New Topic', command=self.reset_quiz)
+
     def open_frame(self, option): 
 
         # get questions based on chosen option
@@ -110,8 +112,14 @@ class Page(customtkinter.CTk):  # Inherit from customtkinter.CTk
                 button.configure(state='disabled')
             self.feedback_label.configure(text=f"Quiz Completed!\n Your score: {score} ")  # Displays Text in a label once all questions have been answered
             print(score)
+            self.retry_button.grid(row=7, column=4, pady=10, padx=10)
 
-        
+    def reset_quiz(self):
+        global score
+        score = 0
+        self.retry_button.pack_forget()
+        self.frame.pack_forget()
+        self.subject_frame.pack(pady=10, padx=10, fill='both', expand=True)
 
 def run():
     app = Page(unique_subjects)
