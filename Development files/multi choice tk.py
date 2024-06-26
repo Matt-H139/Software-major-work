@@ -65,9 +65,8 @@ class Page(customtkinter.CTk):  # Inherit from customtkinter.CTk
         self.frame.pack(pady=20, padx=20, fill="both", expand=True)
 
         self.label = customtkinter.CTkLabel(master=self.frame, text=f"{option} Quiz", fg_color="transparent")
-        self.label.grid(row=0, column=3, columnspan=4, sticky="news")
+        self.label.grid(row=0, column=3, columnspan=3, sticky="news") 
 
-        
         self.feedback_label = customtkinter.CTkLabel(master=self.frame, text='Quiz Title', fg_color='transparent') #setting label dimensions + label name/title
         self.feedback_label.grid(row=1, column=4, sticky='nsew') #label in grid
         
@@ -112,7 +111,7 @@ class Page(customtkinter.CTk):  # Inherit from customtkinter.CTk
             self.feedback_label.configure(text=f"Quiz Completed!\n Your score: {score} ")  # Displays Text in a label once all questions have been answered
             print(score)
 
-
+        
 
 def run():
     app = Page(unique_subjects)
